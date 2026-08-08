@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div class="login-page">
+  <div class="login-page__content">
+    <div class="login-page__header">
+      <app-logo size="md" />
+      <div class="login-page__intro">
+        <h1 class="login-page__title">Log in to your account</h1>
+        <p class="login-page__subtitle">Welcome back! Please enter your details.</p>
+      </div>
+    </div>
+
+    <form class="login-page__form" (submit)="onSubmit($event)">
+      <app-text-field
+        label="Email"
+        type="email"
+        placeholder="Enter your email"
+        autocomplete="email"
+        [required]="true"
+        [(value)]="email"
+      />
+      <app-text-field
+        label="Password"
+        type="password"
+        placeholder="Enter your password"
+        autocomplete="current-password"
+        [required]="true"
+        [(value)]="password"
+      />
+      <app-button type="submit" variant="primary" size="lg" [fullWidth]="true">
+        Sign In
+      </app-button>
+    </form>
+  </div>
+</div>

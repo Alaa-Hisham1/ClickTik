@@ -1,19 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TextField } from './text-field';
+import { Footer } from './footer';
 
-describe('TextField', () => {
-  let component: TextField;
-  let fixture: ComponentFixture<TextField>;
+describe('Footer', () => {
+  let component: Footer;
+  let fixture: ComponentFixture<Footer>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TextField],
+      imports: [Footer],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(TextField);
+    fixture = TestBed.createComponent(Footer);
     component = fixture.componentInstance;
-    fixture.componentRef.setInput('label', 'Email');
     await fixture.whenStable();
   });
 
