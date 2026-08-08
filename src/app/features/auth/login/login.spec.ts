@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
+import { AuthStore } from '../../../core/auth/auth.store';
 import { Login } from './login';
 
 describe('Login', () => {
@@ -9,6 +11,18 @@ describe('Login', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Login],
+      providers: [
+        provideRouter([]),
+        {
+          provide: AuthStore,
+          useValue: {
+            isAuthenticated: () => false,
+            loading: () => false,
+            error: () => null,
+            login: () => {},
+          },
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Login);

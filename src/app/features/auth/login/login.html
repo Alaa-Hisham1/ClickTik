@@ -9,13 +9,18 @@
     </div>
 
     <form class="login-page__form" (submit)="onSubmit($event)">
+      @if (error()) {
+        <p class="login-page__error" role="alert">{{ error() }}</p>
+      }
+
       <app-text-field
         label="Email"
-        type="email"
+        type="text"
         placeholder="Enter your email"
-        autocomplete="email"
+        autocomplete="username"
         [required]="true"
-        [(value)]="email"
+        [disabled]="loading()"
+        [(value)]="username"
       />
       <app-text-field
         label="Password"
@@ -23,9 +28,17 @@
         placeholder="Enter your password"
         autocomplete="current-password"
         [required]="true"
+        [disabled]="loading()"
         [(value)]="password"
       />
-      <app-button type="submit" variant="primary" size="lg" [fullWidth]="true">
+      <app-button
+        type="submit"
+        variant="primary"
+        size="lg"
+        [fullWidth]="true"
+        [loading]="loading()"
+        [disabled]="loading()"
+      >
         Sign In
       </app-button>
     </form>
